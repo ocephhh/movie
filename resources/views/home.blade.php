@@ -38,7 +38,8 @@
 												<p class="fexi_header">Force 2</p>
 												<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span>Presenting the official trailer of Force 2 starring John Abraham, Sonakshi Sinha and Tahir Raj Bhasin
 
-												A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Ltd....</p>
+													A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Ltd....</p>
+
 												<p class="fexi_header_para"><span>Release On<label>:</label></span>Sep 29, 2016 </p>
 												<p class="fexi_header_para">
 													<span>Genres<label>:</label> </span>
@@ -58,12 +59,15 @@
 										     <div class="col-md-7 wthree_agile-movies_list">
 										     	@foreach(\App\Movie::take(8)->get() as $movie)
 														<div class="w3l-movie-gride-agile">
-															<a href="single.html" class="hvr-sweep-to-bottom"><img style="min-height: 300px; max-height: 300px"  src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" ">
+
+															<a href="{{route('film',$movie->id)}}" class="hvr-sweep-to-bottom">
+																<img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="min-height: 240px;max-height: 240px">
+
 																<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 															</a>
 																<div class="mid-1 agileits_w3layouts_mid_1_home">
 																	<div class="w3l-movie-text">
-																		<h6><a href="single.html"> {{ $movie->judul }}	</a></h6>						
+																		<h6><a href="{{route('film',$movie->id)}}"> {{ $movie->judul }}	</a></h6>						
 																	</div>
 																	<div class="mid-2 agile_mid_2_home">
 																		<p > {{ date('Y', strtotime($movie->rilis)) }}  </p>
@@ -727,18 +731,23 @@
 			<div class="w3_agile_latest_movies">
 			
 				<div id="owl-demo" class="owl-carousel owl-theme">
-					<div class="item">
-						@foreach(\App\Movie::take(6)->get() as $movie)
+
+					
+					@foreach(\App\Movie::take(6)->get() as $movie)
+					<div class="item">		
+
 						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-							<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="min-height: 400px; max-height: 400px" />
+							
+							<a href="single.html" class="hvr-sweep-to-bottom">
+								<img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="max-height: 300px;min-height: 300px;" />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
 								<div class="w3l-movie-text">
-									<h6><a href="single.html"> {{ $movie->judul }}	</a></h6>							
+									<h6><a href="single.html">{{ $movie->judul }}</a></h6>							
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<p> {{ date('Y', strtotime($movie->rilis)) }} </p>
+									<p>{{ date('Y', strtotime($movie->rilis)) }}</p>
 									<div class="block-stars">
 										<ul class="w3l-ratings">
 											@for($i=1;$i<=$movie->rating;$i++)
@@ -763,65 +772,6 @@
 					</div>
 					@endforeach
 					{{-- <div class="item">
-							<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m6.jpg" title="Movies Pro" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Hopeless</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben one">
-								<p>NEW</p>
-							</div>
-							</div>
-					</div>
-					<div class="item">
-						@foreach(\App\Movie::take(6)->get() as $movie)
-						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-							
-							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m7.jpg" title="Movies Pro" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{ $movie->judul }}</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>{{ $movie->rilis }}</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben one">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					@endforeach
-					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
 							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m8.jpg" title="Movies Pro" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
@@ -990,29 +940,37 @@
 							</div>
 						</div>
 					   </div>
-				    </div> --}}
+				    </div> --}} 
 				<!--//movies-->
-			</div>
-				 <h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
+
+				</div>
+				<h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
+
 				<!--/requested-movies-->
 				    <div class="wthree_agile-requested-movies">
+				    	@foreach(\App\Movie::take(8)->get() as $movie)
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
-															<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+															<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="max-height: 350px;min-height: 350px;">
 																<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 															</a>
 																<div class="mid-1 agileits_w3layouts_mid_1_home">
 																	<div class="w3l-movie-text">
-																		<h6><a href="single.html">Swiss Army Man</a></h6>							
+																		<h6><a href="single.html">{{ $movie->judul }}</a></h6>							
 																	</div>
 																	<div class="mid-2 agile_mid_2_home">
-																		<p>2016</p>
+																		<p>{{ date('Y', strtotime($movie->rilis)) }}</p>
 																		<div class="block-stars">
 																			<ul class="w3l-ratings">
-																				<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+																				@for($i=1;$i<=$movie->rating;$i++)
+																					<li>
+																						<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+																					</li>
+																				@endfor
+																				@for($i=1;$i<=(5-$movie->rating);$i++)
+																				<li>
+																					<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+																				</li>
+																				@endfor
 																			</ul>
 																		</div>
 																		<div class="clearfix"></div>
@@ -1022,7 +980,8 @@
 																<p>NEW</p>
 															</div>
 										</div>
-										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
+										@endforeach
+										{{-- <div class="col-md-2 w3l-movie-gride-agile requested-movies">
 												<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m2.jpg" title="Movies Pro" class="img-responsive" alt=" ">
 													<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 												</a>
@@ -1255,7 +1214,7 @@
 												<div class="ribben one">
 													<p>NEW</p>
 												</div>
-										</div>
+										</div> --}}
 										<div class="clearfix"></div>
 					</div>
 				<!--//requested-movies-->
