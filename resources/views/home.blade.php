@@ -37,8 +37,7 @@
 	        <div class="player-text">
 												<p class="fexi_header">Force 2</p>
 												<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span>Presenting the official trailer of Force 2 starring John Abraham, Sonakshi Sinha and Tahir Raj Bhasin
-
-A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Ltd....</p>
+													A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Ltd....</p>
 												<p class="fexi_header_para"><span>Release On<label>:</label></span>Sep 29, 2016 </p>
 												<p class="fexi_header_para">
 													<span>Genres<label>:</label> </span>
@@ -56,9 +55,10 @@ A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Lt
 											</div>
 										    </div>
 										     <div class="col-md-7 wthree_agile-movies_list">
-										     	@foreach(\App\Movie::get() as $movie)
+										     	@foreach(\App\Movie::take(8)->get() as $movie)
 														<div class="w3l-movie-gride-agile">
-															<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" ">
+															<a href="single.html" class="hvr-sweep-to-bottom">
+																<img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="min-height: 240px;max-height: 240px">
 																<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 															</a>
 																<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -727,67 +727,13 @@ A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Lt
 			<div class="w3_agile_latest_movies">
 			
 				<div id="owl-demo" class="owl-carousel owl-theme">
-					<div class="item">
-						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m5.jpg" title="Movies Pro" class="img-responsive" alt=" " />
-								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
-							</a>
-							<div class="mid-1 agileits_w3layouts_mid_1_home">
-								<div class="w3l-movie-text">
-									<h6><a href="single.html">Storkssss	</a></h6>							
-								</div>
-								<div class="mid-2 agile_mid_2_home">
-									<p>2016</p>
-									<div class="block-stars">
-										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<div class="ribben one">
-								<p>NEW</p>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-								<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-								<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m6.jpg" title="Movies Pro" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="single.html">Hopeless</a></h6>							
-									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>2016</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-								<div class="ribben one">
-									<p>NEW</p>
-								</div>
-					</div>
-					</div>
-					<div class="item">
-						@foreach(\App\Movie::get() as $movie)
+					
+					@foreach(\App\Movie::get() as $movie)
+					<div class="item">		
 						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
 							
-							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m7.jpg" title="Movies Pro" class="img-responsive" alt=" " />
+							<a href="single.html" class="hvr-sweep-to-bottom">
+								<img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="max-height: 250px;min-height: 250px;" />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -985,7 +931,8 @@ A film by Abhinay Deo, Produced by Vipul Amrutlal Shah, JA entertainment Pvt. Lt
 					   </div>
 				    </div> --}}
 				<!--//movies-->
-				 <h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
+				</div>
+				<h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
 				<!--/requested-movies-->
 				     <div class="wthree_agile-requested-movies">
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
