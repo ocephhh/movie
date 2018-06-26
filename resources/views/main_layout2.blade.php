@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Movies Pro an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Movies Pro an Entertainment Category Flat Bootstrap Responsive Website Template | Single Page :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="{{ url('/') }}/">
@@ -35,11 +35,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!--/main-header-->
   <!--/banner-section-->
-	<div id="demo-1" data-zs-src='["images/2.jpg", "images/1.jpg", "images/3.jpg","images/4.jpg"]' data-zs-overlay="dots">
-		<div class="demo-inner-content">
+	<div id="demo-1" class="banner-inner">
+	 <div class="banner-inner-dott">
 		<!--/header-w3l-->
 			   <div class="header-w3-agileits" id="home">
-			     <div class="inner-header-agile">	
+			     <div class="inner-header-agile part2">	
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -53,33 +53,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- navbar-header -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-							<li><a href="{{route('home')}}">Home</a></li>
+							<li class="active"><a href="index.html">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 									<div class="col-sm-4">
 										<ul class="multi-column-dropdown">
-											@foreach(\App\Genre::get() as $genre)
-											<li>
-												<a href="{{route('genre',['genre'=>$genre->genre])}}">{{ $genre->genre }}</a>
-											</li>
-											@endforeach
+											<li><a href="genre.html">Action</a></li>
+											<li><a href="genre.html">Biography</a></li>
+											<li><a href="genre.html">Crime</a></li>
+											<li><a href="genre.html">Family</a></li>
+											<li><a href="horror.html">Horror</a></li>
+											<li><a href="genre.html">Romance</a></li>
+											<li><a href="genre.html">Sports</a></li>
+											<li><a href="genre.html">War</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-4">
-										
+										<ul class="multi-column-dropdown">
+											<li><a href="genre.html">Adventure</a></li>
+											<li><a href="comedy.html">Comedy</a></li>
+											<li><a href="genre.html">Documentary</a></li>
+											<li><a href="genre.html">Fantasy</a></li>
+											<li><a href="genre.html">Thriller</a></li>
+										</ul>
 									</div>
 									<div class="col-sm-4">
-										
+										<ul class="multi-column-dropdown">
+											<li><a href="genre.html">Animation</a></li>
+											<li><a href="genre.html">Costume</a></li>
+											<li><a href="genre.html">Drama</a></li>
+											<li><a href="genre.html">History</a></li>
+											<li><a href="genre.html">Musical</a></li>
+											<li><a href="genre.html">Psychological</a></li>
+										</ul>
 									</div>
 									<div class="clearfix"></div>
 									</li>
 								</ul>
 							</li>
-							<li><a href="{{route('series')}}">tv - series</a></li>
-							<li><a href="{{route('news')}}">news</a></li>
-							{{-- <li class="dropdown">
+							<li><a href="series.html">tv - series</a></li>
+							<li><a href="news.html">news</a></li>
+							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
@@ -110,9 +126,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="clearfix"></div>
 									</li>
 								</ul>
-							</li> --}}
-							<li><a href="{{route('list')}}">A - z list</a></li>
-							<li><a href="{{route('contact')}}">Contact</a></li>
+							</li>
+								<li><a href="list.html">A - z list</a></li>
+							    <li><a href="contact.html">Contact</a></li>
 						</ul>
 
 					</div>
@@ -135,22 +151,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			   </div>
 		<!--//header-w3l-->
-			<!--/banner-info-->
-			   <div class="baner-info">
-			      <h3>Latest <span>On</span>Line <span>Mo</span>vies</h3>
-				  <h4>In space no one can hear you scream.</h4>
-				  <a class="w3_play_icon1" href="#small-dialog1">
-											Watch Trailer
-										</a>
-			   </div>
-			<!--/banner-ingo-->		
 		</div>
     </div>
   <!--/banner-section-->
  <!--//main-header-->
-	        @yield('content')
-		
-	<!--/footer-bottom-->
+	         <!--/banner-bottom-->
+			  <div class="w3_agilits_banner_bootm">
+			     <div class="w3_agilits_inner_bottom">
+			            <div class="col-md-6 wthree_agile_login">
+						     <ul>
+									<li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 009 455 4088</li>
+									<li><a href="#" class="login"  data-toggle="modal" data-target="#myModal4">Login</a></li>
+									<li><a href="#" class="login reg"  data-toggle="modal" data-target="#myModal5">Register</a></li>
+
+								</ul>
+						</div>
+						 <div class="col-md-6 wthree_share_agile">
+									
+									<div class="single-agile-shar-buttons">
+									<ul>
+										<li>
+											<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=0&amp;href=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;size=small"><span style="vertical-align: bottom; width: 72px; height: 20px;"><iframe name="f2bcb80ca05f304" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/v2.7/plugins/like.php?action=like&amp;app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df6413e2ef8005c%26domain%3D192.168.30.16%26origin%3Dhttp%253A%252F%252F192.168.30.16%252Ff23cad7c29602ec%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;size=small" style="border: none; visibility: visible; width: 72px; height: 20px;" class=""></iframe></span></div>
+											<script>(function(d, s, id) {
+											  var js, fjs = d.getElementsByTagName(s)[0];
+											  if (d.getElementById(id)) return;
+											  js = d.createElement(s); js.id = id;
+											  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+											  fjs.parentNode.insertBefore(js, fjs);
+											}(document, 'script', 'facebook-jssdk'));</script>
+										</li>
+										<li>
+											<div class="fb-share-button fb_iframe_widget" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-size="small" data-mobile-iframe="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=31&amp;href=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;layout=button_count&amp;locale=en_GB&amp;mobile_iframe=true&amp;sdk=joey&amp;size=small"><span style="vertical-align: bottom; width: 89px; height: 20px;"><iframe name="f14663dc58e1108" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:share_button Facebook Social Plugin" src="https://www.facebook.com/v2.7/plugins/share_button.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Dfd149d30fa205%26domain%3D192.168.30.16%26origin%3Dhttp%253A%252F%252F192.168.30.16%252Ff23cad7c29602ec%26relation%3Dparent.parent&amp;container_width=31&amp;href=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;layout=button_count&amp;locale=en_GB&amp;mobile_iframe=true&amp;sdk=joey&amp;size=small" style="border: none; visibility: visible; width: 89px; height: 20px;" class=""></iframe></span></div>
+										</li>
+										<li class="news-twitter">
+											<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="http://platform.twitter.com/widgets/follow_button.39f7ee9fffbd122b7a37a520dbdaebc6.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=w3layouts&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1476942639462" style="position: static; visibility: visible; width: 125px; height: 20px;" data-screen-name="w3layouts"></iframe><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+										</li>
+										<li>
+											<iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-mention-button twitter-mention-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="http://platform.twitter.com/widgets/tweet_button.39f7ee9fffbd122b7a37a520dbdaebc6.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=http%3A%2F%2F192.168.30.16%2Findraja%2Fseptember%2Fone_movies%2Fweb%2Fsingle.html&amp;screen_name=w3layouts&amp;size=m&amp;time=1476942639465&amp;type=mention" style="position: static; visibility: visible; width: 135px; height: 20px;" data-screen-name="w3layouts"></iframe><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+										</li>
+										<li>
+											<!-- Place this tag where you want the +1 button to render. -->
+											<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1476942639795" name="I0_1476942639795" src="https://apis.google.com/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=http%3A%2F%2F192.168.30.16&amp;url=http%3A%2F%2F192.168.30.16%2Findraja%2Fseptember%2Fone_movies%2Fweb%2Fsingle.html&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_GB.kCpGxVlSmwA.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOqnR-IuajXkHTRXhjfhEDC7RD1og#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1476942639795&amp;parent=http%3A%2F%2F192.168.30.16&amp;pfname=&amp;rpctoken=39371997" data-gapiattached="true" title="+1"></iframe></div>
+
+											<!-- Place this tag after the last +1 button tag. -->
+											<script type="text/javascript">
+											  (function() {
+												var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+												po.src = 'https://apis.google.com/js/platform.js';
+												var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+											  })();
+											</script>
+										</li>
+									</ul>
+								</div>
+						</div>
+				</div>
+			</div>
+			<!--//banner-bottom-->
+
+			 @yield('content')
+
+<!--/footer-bottom-->
 		<div class="contact-w3ls" id="contact">
 			<div class="footer-w3lagile-inner">
 				<h2>Sign up for our <span>Newsletter</span></h2>
@@ -323,11 +384,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				});
 			</script>
 		<!-- //Dropdown-Menu-JavaScript -->
-
-
-<script type="text/javascript" src="js/jquery.zoomslider.min.js"></script>
 		<!-- search-jQuery -->
 				<script src="js/main.js"></script>
+			
 			<script src="js/simplePlayer.js"></script>
 			<script>
 				$("document").ready(function() {
@@ -349,13 +408,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$("#video3").simplePlayer();
 				});
 			</script>
+			<script>
+				$("document").ready(function() {
+					$("#video4").simplePlayer();
+				});
+			</script>
+			<script>
+				$("document").ready(function() {
+					$("#video5").simplePlayer();
+				});
+			</script>
+			<script>
+				$("document").ready(function() {
+					$("#video6").simplePlayer();
+				});
+			</script>
+			<script>
+				$("document").ready(function() {
+					$("#video6").simplePlayer();
+				});
+			</script>
 
 			<!-- pop-up-box -->  
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 	<!--//pop-up-box -->
 
 			<div id="small-dialog1" class="mfp-hide">
-			<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
 	</div>
 	<div id="small-dialog2" class="mfp-hide">
 		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>

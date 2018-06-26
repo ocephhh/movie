@@ -58,4 +58,58 @@ class KategoriController extends Controller
     	$kategori->forceDelete();
     	echo json_encode(['status'=>true,'msg'=>'Berhasil Menghapus Data']);
     }
+
+    public function listAPI()
+    {
+        
+        $data = Kategori::all();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    
+    public function tambahAPI(Request $request)
+    {
+        $request->validate
+
+        ([
+            'kategori' => 'required|min:5'
+        ]);
+
+        $kategori               =   new Kategori;
+        $kategori->kategori     =   $request->kategori;
+        $kategori->save();
+
+        return response()->json([
+            'message' => 'Berhasil Menambah Data'
+        ]);
+    }
+
+    public function editAPI($id, Request $request)
+    {
+        $request->validate
+        
+        ([
+            'kategori' => 'required|min:5|'
+        ]);
+
+        
+        $kategori               =   Kategori::find($id);
+        $kategori->kategori     =   $request->kategori;
+        $kategori->save();
+
+        return response()->json([
+            'message' => 'Berhasil Mengubah Data'
+        ]);   
+    }
+
+     public function deleteAPI($id)
+    {
+        $genre  =   Kategori::find($id);
+        $genre->forceDelete();
+        
+        return response()->json([
+            'message' => 'Berhasil Menghapus Data'
+        ]); 
+    }
 }

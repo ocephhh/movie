@@ -67,7 +67,7 @@
 															</a>
 																<div class="mid-1 agileits_w3layouts_mid_1_home">
 																	<div class="w3l-movie-text">
-																		<h6><a href="{{route('film',$movie->id)}}"> {{ $movie->judul }}	</a></h6>						
+																		<h6><a href="{{-- {{route('film',$movie->id)}} --}}"> {{ $movie->judul }}	</a></h6>						
 																	</div>
 																	<div class="mid-2 agile_mid_2_home">
 																		<p > {{ date('Y', strtotime($movie->rilis)) }}  </p>
@@ -948,7 +948,7 @@
 
 				<!--/requested-movies-->
 				    <div class="wthree_agile-requested-movies">
-				    	@foreach(\App\Movie::take(8)->get() as $movie)
+				    	@foreach(\App\Movie::take(10)->get() as $movie)
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
 															<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="max-height: 350px;min-height: 350px;">
 																<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>

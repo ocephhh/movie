@@ -130,26 +130,30 @@
 			<!--/content-inner-section-->
 				<div class="w3_content_agilleinfo_inner">
 					<div class="agile_featured_movies">
-						<!--/comedy-movies-->
-					<h3 class="agile_w3_title hor-t">Comedy<span>Movies</span> </h3>
+						<!--/action-movies-->
+					<h3 class="agile_w3_title hor-t">{{$genre->genre}}<span>Movies</span> </h3>
 					 <div class="wthree_agile-requested-movies tv-movies">
+					 	@foreach($films as $movie)
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
-															<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/c1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+															<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url(Storage::url($movie->gambar)) }}" title="Movies Pro" class="img-responsive" alt=" " style="min-height: 400px;max-height: 400px">
 																<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 															</a>
 																<div class="mid-1 agileits_w3layouts_mid_1_home">
 																	<div class="w3l-movie-text">
-																		<h6><a href="single.html">Kevin Hart</a></h6>							
+																		<h6><a href="single.html">{{ $movie->judul }}</a></h6>							
 																	</div>
 																	<div class="mid-2 agile_mid_2_home">
-																		<p>2016</p>
+																		<p>{{ date('Y', strtotime($movie->rilis)) }}</p>
 																		<div class="block-stars">
 																			<ul class="w3l-ratings">
-																				<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+																				@for($i=1;$i<=$movie->rating;$i++)
+																					<li>
+																						<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+																					</li>
+																				@endfor
+																				@for($i=1;$i<=(5-$movie->rating);$i++)
 																				<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-																				<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+																				@endfor
 																			</ul>
 																		</div>
 																		<div class="clearfix"></div>
@@ -159,7 +163,8 @@
 																<p>NEW</p>
 															</div>
 													</div>
-											<div class="col-md-2 w3l-movie-gride-agile requested-movies">
+						@endforeach					
+											{{-- <div class="col-md-2 w3l-movie-gride-agile requested-movies">
 												<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/c2.jpg" title="Movies Pro" class="img-responsive" alt=" ">
 													<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
 												</a>
@@ -181,7 +186,7 @@
 														<div class="clearfix"></div>
 													</div>
 												</div>
-											<div class="ribben one">
+												<div class="ribben one">
 													<p>NEW</p>
 												</div>
 											</div>
@@ -233,7 +238,7 @@
 														<div class="clearfix"></div>
 													</div>
 												</div>
-											<div class="ribben one">
+												<div class="ribben one">
 													<p>NEW</p>
 												</div>
 											</div>
@@ -262,12 +267,12 @@
 												<div class="ribben one">
 													<p>NEW</p>
 												</div>
-											</div>
+											</div> --}}
 												<div class="clearfix"></div>
 						</div>
 			<!--//comedy-movies-->
 					<!--/tv-movies-->
-					<h3 class="agile_w3_title">Horror<span>Movies</span> </h3>
+					{{-- <h3 class="agile_w3_title">Horror<span>Movies</span> </h3>
 					 <div class="wthree_agile-requested-movies tv-movies">
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
 															<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/hr1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
@@ -402,7 +407,7 @@
 												<div class="clearfix"></div>
 						</div>
 			<!--//tv-movies-->
-				 <h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
+				 	<h3 class="agile_w3_title">Requested <span>Movies</span> </h3>
 				<!--/requested-movies-->
 				     <div class="wthree_agile-requested-movies">
 										<div class="col-md-2 w3l-movie-gride-agile requested-movies">
@@ -679,11 +684,11 @@
 								</ul>
 								
 								<!--//requested-movies-->
-				  <h3 class="agile_w3_title"> Top Movies <span>Review</span></h3>
+				  <h3 class="agile_w3_title"> Top Movies <span>Review</span></h3> --}}
 			<!--/movies-->				
-			<div class="w3_agile_latest_movies">
+			{{-- <div class="w3_agile_latest_movies"> --}}
 			
-				<div id="owl-demo" class="owl-carousel owl-theme">
+				{{-- <div id="owl-demo" class="owl-carousel owl-theme">
 					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
 							<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/m5.jpg" title="Movies Pro" class="img-responsive" alt=" " />
@@ -937,7 +942,7 @@
 							</div>
 						</div>
 					   </div>
-				    </div>
+				    </div> --}}
 				<!--//movies-->
 					</div>
 				</div>

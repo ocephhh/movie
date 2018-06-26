@@ -83,4 +83,85 @@ class SeriesController extends Controller
     	$series->forceDelete();
     	echo json_encode(['status'=>true,'msg'=>'Berhasil Menghapus Data']);
     }
+
+    public function ListAPI()
+    {
+        $data = Series::all();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function tambahAPI(Request $request)
+    {
+        $request->validate
+
+        ([
+            'judul' => 'required|min:5|',
+            'film' => 'required',
+            'gambar' => 'required',
+            'sinopsis' => 'required',
+            'release' => 'required',
+            'genre' => 'required',
+            'rating' => 'required|integer',
+            'negara' => 'required'
+        ]);
+        
+        $gambar             =   $request->file('gambar')->store('public/gambars');
+        $series             =   new Series;
+        $series->judul      =   $request->judul;
+        $series->film       =   $request->film;
+        $series->sinopsis   =   $request->sinopsis;
+        $series->rilis      =   $request->release;
+        $series->genre      =   $request->genre;
+        $series->rating     =   $request->rating;
+        $series->negara     =   $request->negara;
+        $series->gambar     =   $gambar;
+        $series->save();
+
+        return response()->json([
+            'message' => 'Berhasil Menambah Data'
+        ]);
+    }
+
+    public function editAPI($id, Request $request)
+    {
+        $request->validate
+
+        ([
+            'judul' => 'required|min:5|',
+            'film' => 'required',
+            'gambar' => 'required',
+            'sinopsis' => 'required',
+            'release' => 'required',
+            'genre' => 'required',
+            'rating' => 'required|integer',
+            'negara' => 'required'
+        ]);
+        
+        $gambar             =   $request->file('gambar')->store('public/gambars');
+        $series             =   Series::find($id);
+        $series->judul      =   $request->judul;
+        $series->film       =   $request->film;
+        $series->sinopsis   =   $request->sinopsis;
+        $series->rilis      =   $request->release;
+        $series->genre      =   $request->genre;
+        $series->rating     =   $request->rating;
+        $series->negara     =   $request->negara;
+        $series->gambar     =   $gambar;
+        $series->save();
+
+        return response()->json([
+            'message' => 'Berhasil Mengubah Data'
+        ]);
+    }
+
+    public function deleteAPI($id)
+    {
+        $genre  =   Series::find($id);
+        $genre->forceDelete();
+        return response()->json([
+            'message' => 'Berhasil Menghapus Data'
+        ]); 
+    }
 }

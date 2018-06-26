@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
     /**
@@ -25,5 +26,14 @@ class HomeController extends Controller
     {   
         $data['title']  = "Home";
         return view('home',$data);
+    }
+
+    public function listHomeAPI()
+    {
+        return response()->json([
+            'recent' => \App\Movie::take(8)->get(),
+            'latest' => \App\Movie::take(6)->get(),
+            'request' => \App\Movie::take(10)->get()
+        ]);
     }
 }

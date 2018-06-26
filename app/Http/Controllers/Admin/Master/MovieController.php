@@ -109,4 +109,100 @@ class MovieController extends Controller
     	$movie->forceDelete();
     	echo json_encode(['status'=>true,'msg'=>'Berhasil Menghapus Data']);
     }
+
+    public function listAPI()
+    {
+        $data = Movie::all();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function tambahAPI(Request $request)
+    {
+        $request->validate
+        ([
+            'judul' => 'required|min:5',
+            'film' => 'required',
+            'gambar' => 'required',
+            'sinopsis' => 'required',
+            'release' => 'required',
+            // 'genre' => 'required',
+            'kategori' => 'required',
+            'rating' => 'required|integer'
+        ]);
+        // echo $request->release;die();
+        $gambar             =   $request->file('gambar')->store('public/gambars');
+        $movie              =   new Movie;
+        $movie->judul       =   $request->judul;
+        $movie->film        =   $request->film;
+        $movie->sinopsis    =   $request->sinopsis;
+        $movie->rilis       =   $request->release;
+        // $movie->genre       =   $request->genre;
+        $movie->kategori    =   $request->kategori;
+        $movie->rating      =   $request->rating;
+        $movie->gambar      =   $gambar;
+        $movie->save();
+
+        foreach ($request->genre as $key => $value) {
+            $relasi         = new RelasiGenreMovie;
+            $relasi->film   = $movie->id;
+            $relasi->genre  = $value;
+            $relasi->save();
+        }
+        return response()->json([
+            'message' => 'Berhasil Menambah Data'
+        ]);
+    }
+
+    public function editAPI($id, Request $request)
+    {
+         $request->validate
+
+         ([
+            'judul' => 'required|min:5|',
+            'film' => 'required',
+            'gambar' => 'required',
+            'sinopsis' => 'required',
+            'release' => 'required',
+            // 'genre' => 'required',
+            'kategori' => 'required',
+            'rating' => 'required|integer'
+        ]);
+
+        $gambar             =   $request->file('gambar')->store('public/gambars');
+        $movie              =   Movie::find($id);
+        $movie->judul       =   $request->judul;
+        $movie->film        =   $request->film;
+        $movie->sinopsis    =   $request->sinopsis;
+        $movie->rilis       =   $request->release;
+        // $movie->genre       =   $request->genre;
+        $movie->kategori    =   $request->kategori;
+        $movie->rating      =   $request->rating;
+        $movie->gambar      =   $gambar;
+        $movie->save();
+
+        foreach ($request->genre as $key => $value) {
+            $relasi         = new RelasiGenreMovie;
+            $relasi->film   = $movie->id;
+            $relasi->genre  = $value;
+            $relasi->save();
+        }
+
+        return response()->json([
+            'message' => 'Berhasil Mengubah Data'
+        ]);
+
+    }
+
+     public function deleteAPI($id)
+    {
+        $genre  =   Movie::find($id);
+        $genre->forceDelete();
+        return response()->json([
+            'message' => 'Berhasil Menghapus Data'
+        ]); 
+    }
+
 }
+

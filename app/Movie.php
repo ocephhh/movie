@@ -12,7 +12,11 @@ class Movie extends Model
 
     public function genreRelasi()
     {
-    	return $this->belongsTo('App\Genre','genre');
+    	//@parameter 1 adalah nama model relasinya
+    	//@parameter 2 adalah tabel relasi antara movie dan genre
+    	//@parameter 3 adalah id movie ditabel relasi
+    	//@parameter 4 adalah id genre ditabel relasi
+    	return $this->belongsToMany('App\Genre', 'relasi_genre_movie', 'film', 'genre');
     }
 
     public function kategoriRelasi() {

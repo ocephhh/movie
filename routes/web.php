@@ -16,11 +16,12 @@ Route::get('/password',function(Request $request){
 });
 
 Route::get('/','HomeController@index')->name('home');
-Route::get('/genre','GenreController@index')->name('genre');
+
 Route::get('/news','NewsController@index')->name('news');
 Route::get('/series','SeriesController@index')->name('series');
 Route::get('/contact','ContactController@index')->name('contact');
 Route::get('/list','ListController@index')->name('list');
+Route::get('/genre','GenreController@index')->name('genre');
 Route::get('/film/{id}','FilmController@index')->name('film');
 Auth::routes();
 

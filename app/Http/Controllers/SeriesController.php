@@ -11,4 +11,11 @@ class SeriesController extends Controller
     	$data['title'] = "Series";
     	return view('series',$data);
     }
+
+    public function seriesAPI()
+    {
+        return response()->json([
+            'series' => \App\Series::take(8)->get()
+        ]);
+    }
 }

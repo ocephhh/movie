@@ -58,4 +58,53 @@ class GenreController extends Controller
     	$genre->forceDelete();
     	echo json_encode(['status'=>true,'msg'=>'Berhasil Menghapus Data']);
     }
+    
+    // menampilkan seluruh genre melalui API
+    public function listAPI()
+    {
+        $data = Genre::all();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function tambahAPI(Request $request)
+    {
+        $request->validate
+        ([
+            'genre' => 'required|min:5'
+        ]);
+        
+        $genre              =   new Genre;
+        $genre->genre       =   $request->genre;
+        $genre->save();
+        return response()->json([
+            'message' => 'Berhasil Menambah Data'
+        ]);
+    }
+
+    public function editAPI($id, Request $request)
+    {
+        $request->validate
+        ([
+            'genre' => 'required|min:5'
+        ]);
+
+        
+        $genre              =   Genre::find($id);
+        $genre->genre       =   $request->genre;
+        $genre->save();  
+        return response()->json([
+            'message' => 'Berhasil Mengubah Data'
+        ]); 
+    }
+
+    public function deleteAPI($id)
+    {
+        $genre  =   Genre::find($id);
+        $genre->forceDelete();
+        return response()->json([
+            'message' => 'Berhasil Menghapus Data'
+        ]); 
+    }
 }
